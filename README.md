@@ -161,3 +161,9 @@ npm test
 
 `npm test` performs the same entry-point syntax check as PJ01/PJ02. Use Swagger UI against a test MongoDB database to verify database integration. Development verification exercised real HTTP routes, controllers, middleware, and schemas with in-memory persistence; it did not connect to your database.
 
+
+## Deployment (Team Yoyo)
+
+This copy of the backend is deployed on Vercel as a serverless function so the frontend demo can run online. Changes from the original: `server.js` skips `app.listen` on Vercel, trusts the proxy header, and reads the rate limit from `RATE_LIMIT`. `api/index.js` and `vercel.json` route every request to the Express app.
+
+Environment variables: `MONGO_URI`, `JWT_SECRET`, `JWT_EXPIRE`, `JWT_COOKIE_EXPIRE`, `NODE_ENV=production`, `FRONTEND_URL`, `RATE_LIMIT`.
